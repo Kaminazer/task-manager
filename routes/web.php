@@ -27,3 +27,5 @@ Route::name("Users.")->group(function () {
     Route::delete('/delete/{id}', [Users::class, "delete"])->name("delete");
 });
 Route::resource("tasks",Tasks::class);
+Route::get('/statuses/{id}', [\App\Http\Controllers\Statuses::class, "showTasks"])->name("statuses.showTasks");
+Route::get('/labels/{id}', [\App\Http\Controllers\Labels::class, "showTasks"])->name("labels.showTasks");

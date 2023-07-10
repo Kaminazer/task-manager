@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Status;
+use App\Models\Task;
 use Illuminate\Http\Request;
 
 class Tasks extends Controller
@@ -35,7 +37,9 @@ class Tasks extends Controller
      */
     public function show(string $id)
     {
-        return "<h1>Display the specified resource.</h1>";
+        $task = Task::query()->where('id',$id)->first();
+        $status = $task->status;
+        $labels = $task->labels;
     }
 
     /**
